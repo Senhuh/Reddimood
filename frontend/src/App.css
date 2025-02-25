@@ -1,42 +1,56 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f3f4f6;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.left-column {
+  min-width: 65%;
+  background-color: rgb(0, 26, 255);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right-column {
+  min-width: 35%;
+  background-color: rgb(215, 17, 215);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.text-view {
+  width: 90%;
+  height: 50%;
+  font-size: 16px;
+  border: 2px solid #030303;
+  border-radius: 5px;
+  resize: none;
+  margin: 10px;
+  overflow-y: auto;
 }
 
-.card {
-  padding: 2em;
+.confidence-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0; /* Light grey background */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
 }
 
-.read-the-docs {
-  color: #888;
+.confidence-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.5s ease-in-out;
 }
+
+.confidence-fill.pos{
+  background-color: green;
+}
+
+.confidence-fill.neu{
+  background-color: greenyellow;
+}
+
+.confidence-fill.neg{
+  background-color: red;
+}
+
