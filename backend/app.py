@@ -8,12 +8,10 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-# ✅ Load AI Detection Model
+# Models
 ai_model = joblib.load("model/ai_detection_pipeline3-final.pkl")
-
-# ✅ Load Sentiment Analysis Model & TF-IDF Vectorizer
 sentiment_model = joblib.load("model/sentiment_model.pkl")
-sentiment_vectorizer = joblib.load("model/sentiment_vectorizer.pkl")  # Load TF-IDF vectorizer
+sentiment_vectorizer = joblib.load("model/sentiment_vectorizer.pkl")  
 
 @app.route("/fetch_reddit_text", methods=["POST"])
 def fetch_reddit_text():
@@ -22,6 +20,7 @@ def fetch_reddit_text():
     url = data.get("url", "")
 
     if not url.startswith("https://www.reddit.com/r/"):
+        # REDDIT ONLY
         return jsonify({"error": "Hey there! I currently only process Reddit posts."}), 400
 
     json_url = url + ".json"
@@ -32,14 +31,14 @@ def fetch_reddit_text():
         response.raise_for_status()
         reddit_data = response.json()
 
-        # ✅ Extract the post content
+        #  WORDS ONLY
         post = reddit_data[0]["data"]["children"][0]["data"]
         text = post.get("selftext", "").strip()
 
         if not text:
             return jsonify({"error": "This Reddit post has no text content, so I can't analyze it."}), 400
 
-        # ✅ Ensure the text is in English
+        #  ENGLISH ONLY
         if detect(text) != "en":
             return jsonify({"error": "Hey there! I detected that the post is not in English. I currently only process English posts from Reddit!"}), 400
 
@@ -57,7 +56,7 @@ def predict():
     if not text:
         return jsonify({"error": "No text provided"}), 400
 
-    # ✅ AI Detection Model Prediction
+    # AI Detection 
     ai_probabilities = ai_model.predict_proba([text])[0]
 
     ai_response = {
@@ -65,10 +64,10 @@ def predict():
         "ai": round(float(ai_probabilities[1]) * 100, 2),
     }
 
-    # ✅ Fix: Transform text into TF-IDF before sentiment prediction
-    text_transformed = sentiment_vectorizer.transform([text])  # Convert to TF-IDF
+    # Transform text into TF-IDF before sentiment prediction
+    text_transformed = sentiment_vectorizer.transform([text])  # it needs a 2d array input
 
-    # ✅ Sentiment Model Prediction
+    # Sentiment Model prediction
     sentiment_probabilities = sentiment_model.predict_proba(text_transformed)[0]
 
     sentiment_response = {
@@ -82,7 +81,7 @@ def predict():
         "sentiment": sentiment_response
     }
 
-    print("Response Sent:", response)  # Debugging
+    print("Response Sent:", response)  # Debugggg
     return jsonify(response)
 
 if __name__ == "__main__":

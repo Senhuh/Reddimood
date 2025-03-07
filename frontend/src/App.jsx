@@ -18,7 +18,7 @@ function App() {
   const [neuCon, setNeuConfidence] = useState(0);
   const [negCon, setNegConfidence] = useState(0);
 
-  // State for API errorss
+  // State for API errors
   const [error, setError] = useState(null);
   const [analyzedText, setAnalyzedText] = useState(""); // Extracted Reddit text
 
