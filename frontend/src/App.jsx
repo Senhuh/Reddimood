@@ -23,6 +23,15 @@ function App() {
   const [analyzedText, setAnalyzedText] = useState(""); // Extracted Reddit text
 
   const handleSubmit = async () => {
+    // Reset UI when Submit is clicked
+    setPosConfidence(0);
+    setNeuConfidence(0);
+    setNegConfidence(0);
+    setHumanConfidence(0);
+    setAiConfidence(0);
+    setAnalyzedText("");
+
+
     if (!postLink.trim() || !postLink.startsWith("https://www.reddit.com/r/")) {
       alert("Hey there! I currently only process Reddit posts.");
       return;

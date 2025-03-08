@@ -59,6 +59,10 @@ def predict():
     # AI Detection 
     ai_probabilities = ai_model.predict_proba([text])[0]
 
+    # check if AI probability is greater than 20%
+    if ai_probabilities[1] > 0.2:
+        return jsonify({"error": "Hey there! I detected that the post has an AI probability greater than 20%! I’m currently limited to human post"}), 400
+
     ai_response = {
         "human": round(float(ai_probabilities[0]) * 100, 2),
         "ai": round(float(ai_probabilities[1]) * 100, 2),
