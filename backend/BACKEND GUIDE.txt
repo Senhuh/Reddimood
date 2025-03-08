@@ -1,0 +1,14 @@
+To use the backend
+
+cd backend
+pip install -r requirements.txt  
+
+That’ll set up Flask, scikit-learn, joblib, requests, and everything else we need.
+Once that’s done, we can start the Flask server. 
+
+then you run:
+python app.py
+
+it should show Running on http://127.0.0.1:5000/
+
+-dont forget to install modules on frontend-
