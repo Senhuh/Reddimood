@@ -49,7 +49,7 @@ The backend is built using Flask and requires Python dependencies.
 
 2️⃣ Frontend Setup (React + Vite)
 
-1. **Navigate to the backend directory**  
+1. **Navigate to the frontend directory**  
    cd frontend
 
 2. **Install frontend dependencies**  
