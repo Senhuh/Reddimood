@@ -1,15 +1,18 @@
-🚀 ReddiMood - Your Reddit Sentiment Analyzer 🧠
+# 🚀 ReddiMood - Your Reddit Sentiment Analyzer 🧠
 
-Ever wondered what the **Reddit hivemind** really thinks? 🤔 Whether it’s full of **love 💖, rage 🔥, or just memes 🤡**, our text-only sentiment analyzer will break it down for you!
+Ever wondered what the **Reddit hivemind** really thinks? 🤔  
+Is it full of **love ❤️**, **rage 🔥**, or just **memes 🤯**?  
+With **ReddiMood**, our lightweight, text-based sentiment analyzer, you can now analyze the emotional tone of Reddit discussions in seconds!  
 
-## 🎯 What is ReddiMood?
-**ReddiMood** (Reddit + Mood) is a **lightweight, text-based sentiment analysis tool** designed to analyze the emotional tone of Reddit comments, threads, and posts. 
+## 📌 What is ReddiMood?
 
-🔍 **What it does:**  
-✅ Scans text from Reddit posts & comments 📜  
-✅ Analyzes sentiment as **Positive**, **Negative**, or **Neutral** 😊😡😐  
-✅ Gives a quick snapshot of the conversation vibe 📊  
-✅ No images, no distractions—just pure text magic! ✨  
+🔍 **ReddiMood** (**Reddit + Mood**) is a **text-based sentiment analysis tool** that processes Reddit comments, threads, and posts to determine their overall emotional tone.
+
+### ✅ **What It Does**
+✔️ Scans text from Reddit posts & comments 📜  
+✔️ Analyzes sentiment as **Positive 😊**, **Negative 😡**, or **Neutral 😐**   
+✔️ States whether the post is written by AI or not. ✨
+✔️ No images, no distractions—just **pure text magic!** ✨
 
 ## 🛠️ How It Works
 1. Paste a Reddit comment, thread, or post text. 📝
@@ -21,3 +24,43 @@ Ever wondered what the **Reddit hivemind** really thinks? 🤔 Whether it’s fu
 ✅ **For researchers** - Want quick sentiment insights? 📊
 ✅ **For developers** - Looking for a text-only sentiment analysis tool? 🛠️
 ✅ **For fun** - Because we all love analyzing internet drama! 🎭
+
+
+
+
+## 🔧 **How to Set Up ReddiMood Locally**
+Follow these steps to set up ReddiMood on your machine.
+
+1️⃣ Backend Setup (Flask)
+The backend is built using Flask and requires Python dependencies.
+
+1. **Navigate to the backend directory**  
+   ```sh
+   cd backend
+
+2. **Install dependencies**  
+   #We have prepapred the dependencies needed in a txt. file!
+   pip install -r requirements.txt
+
+
+3. **Run the backend server**  
+    python app.py
+    # If done right then it should show: Running on http://127.0.0.1:5000/
+
+2️⃣ Frontend Setup (React + Vite)
+
+1. **Navigate to the backend directory**  
+   cd frontend
+
+2. **Install frontend dependencies**  
+   npm install
+
+3. **Start the frontend development server**  
+   npm run dev
+   # The app should now be running at: Local: http://localhost:5173/
+
+      
+📜 License
+This project is open-source and available under the MIT License.
+
+
